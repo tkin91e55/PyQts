@@ -11,6 +11,10 @@ class Counter(QObject):
     #Declare of QtSignal: it need to connect to func(int)
     valueChangedSignal = pyqtSignal(int)
 
+    #Although PyQt4 allows any Python callable to be used as a slot 
+    #when connecting signals, it is sometimes necessary to explicitly 
+    #mark a Python method as being a Qt slot and to provide a C++ 
+    #signature for it. 
     def SetValue(self, assignVal):
     	self.counter = assignVal
     	self.valueChangedSignal.emit(assignVal)
